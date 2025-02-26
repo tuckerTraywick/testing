@@ -1,9 +1,8 @@
-#include <stddef.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include "testing.h"
 
-extern FILE *testOutput;
-extern FILE *errorOutput;
+extern FILE *output;
 
 extern unsigned int testsRun;
 extern unsigned int testsPassed;
@@ -19,17 +18,28 @@ void beginTesting(void) {
 }
 
 void endTesting(void) {
-	fprintf(testOutput, "%u tests run.\n%u tests passed.\n%u tests failed.\n", testsRun, testsPassed, testsFailed);
+	fprintf(output, "---- TEST SUMMARY ----\n");
+	fprintf(output, "%u tests run.\n%u tests passed.\n%u tests failed.\n", testsRun, testsPassed, testsFailed);
 }
 
 void runTestImpl(TestCase test, char *name) {
 	unsigned int failed = assertionsFailed;
 	test();
+	++testsRun;
 	if (assertionsFailed > failed) {
-		fprintf(errorOutput, "Test `%s` failed.\n", name);
+		fprintf(output, "[%s] Test failed.\n\n", name);
 		++testsFailed;
 	} else {
 		++testsPassed;
 	}
-	++testsRun;
+}
+
+void assertImpl(bool success, char *testName, char *fileName, unsigned int lineNumber, char *condition) {
+	++assertionsRun;
+	if (success) {
+		++assertionsPassed;
+		return;
+	}
+	++assertionsFailed;
+	fprintf(output, "[%s:%s:%u] Assertion failed: `%s`.\n", testName, fileName, lineNumber, condition);
 }
