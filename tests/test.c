@@ -1,8 +1,7 @@
 #include "testing.h"
 
 void test1(void) {
-	int a = -10;
-	assertEqInt(a + 1, 3);
+	assertNeNString("abcdef", "abc123", 3);
 }
 
 int main(void) {
