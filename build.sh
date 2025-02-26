@@ -28,6 +28,7 @@ clang build/source.o source/main.c -o binary/run
 # Create the test compilation unit and executable.
 if [ $1 ]; then
 	createUnit tests > build/test.c
+	echo
 	echo $testCommand
 	eval $testCommand
 fi
