@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include "logging.h"
 #include "testing.h"
 
 void test1(void) {
