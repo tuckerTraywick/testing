@@ -1,6 +1,7 @@
+#include <stdint.h>
 #include <stdbool.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -66,12 +67,26 @@ void runTestImpl(TestCase test, char *name) {
 	}
 }
 
-void assertImpl(bool success, char *testName, char *fileName, unsigned int lineNumber, char *condition) {
+static void updateAssertionResults(bool success) {
 	++results->assertionsRun;
 	if (success) {
 		++results->assertionsPassed;
 		return;
 	}
 	++results->assertionsFailed;
-	fprintf(output, "[%s:%s:%u] Assertion failed: '%s'.\n", testName, fileName, lineNumber, condition);
+}
+
+void assertImpl(bool success, char *testName, char *fileName, unsigned int lineNumber, char *expression) {
+	updateAssertionResults(success);
+	fprintf(output, "[%s:%s:%u] Assertion failed: '%s'.\n", testName, fileName, lineNumber, expression);
+}
+
+void assertEqIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
+	updateAssertionResults(a == b);
+	fprintf(output, "[%s:%s:%u] Assertion failed: '%s == %s' (%s = %lld, %s = %lld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+}
+
+void assertEqUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
+	updateAssertionResults(a == b);
+	fprintf(output, "[%s:%s:%u] Assertion failed: '%s == %s' (%s = %llu, %s = %llu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
