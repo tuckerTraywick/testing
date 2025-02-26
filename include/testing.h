@@ -12,14 +12,17 @@
 
 typedef void (*TestCase)(void);
 
-FILE *output;
+typedef struct TestResults {
+	unsigned int testsRun;
+	unsigned int testsPassed;
+	unsigned int testsFailed;
+	unsigned int assertionsRun;
+	unsigned int assertionsPassed;
+	unsigned int assertionsFailed;
+} TestResults;
 
-unsigned int testsRun;
-unsigned int testsPassed;
-unsigned int testsFailed;
-unsigned int assertionsRun;
-unsigned int assertionsPassed;
-unsigned int assertionsFailed;
+FILE *output;
+TestResults *results;
 
 void beginTesting(void);
 
