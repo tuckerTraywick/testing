@@ -8,8 +8,17 @@
 #include <sys/mman.h>
 #include "testing.h"
 
+typedef struct TestResults {
+	unsigned int testsRun;
+	unsigned int testsPassed;
+	unsigned int testsFailed;
+	unsigned int assertionsRun;
+	unsigned int assertionsPassed;
+	unsigned int assertionsFailed;
+} TestResults;
+
 extern FILE *output;
-extern TestResults *results;
+static TestResults *results;
 
 void beginTesting(void) {
 	results = mmap(NULL, sizeof *results, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
@@ -45,7 +54,7 @@ void runTestImpl(TestCase test, char *name) {
 	waitpid(pid, &status, 0);
 	if (WIFSIGNALED(status)) {
 		++results->testsFailed;
-		fprintf(output, "[%s] Test failed with signal %s and status %d.\n\n", name, strsignal(WTERMSIG(status)), WEXITSTATUS(status));
+		fprintf(output, "[%s] Test failed with signal '%s' and status %d.\n\n", name, strsignal(WTERMSIG(status)), WEXITSTATUS(status));
 		return;
 	}
 
@@ -64,5 +73,5 @@ void assertImpl(bool success, char *testName, char *fileName, unsigned int lineN
 		return;
 	}
 	++results->assertionsFailed;
-	fprintf(output, "[%s:%s:%u] Assertion failed: `%s`.\n", testName, fileName, lineNumber, condition);
+	fprintf(output, "[%s:%s:%u] Assertion failed: '%s'.\n", testName, fileName, lineNumber, condition);
 }
