@@ -82,93 +82,93 @@ static bool updateAssertionResults(bool success) {
 }
 
 void testAssertImpl(bool success, char *testName, char *fileName, unsigned int lineNumber, char *expression) {
-	if (!updateAssertionResults(success)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: '%s'.\n", fileName, lineNumber, testName, expression);
+	if (!updateAssertionResults(success)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: '%s'.\n", fileName, lineNumber, testName, expression);}
 }
 
 void testAssertEqIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a == b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s == %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a == b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s == %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertNeIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a != b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s != %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a != b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s != %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertGtIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a > b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s > %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a > b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s > %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertLtIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a < b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s < %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a < b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s < %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertGeIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a >= b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s >= %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a >= b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s >= %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertLeIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a <= b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s <= %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a <= b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s <= %s (%s = %ld, %s = %ld).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertEqUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a == b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s == %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a == b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s == %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertNeUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a != b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s != %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a != b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s != %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertGtUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a > b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s > %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a > b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s > %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertLtUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a < b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s < %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a < b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s < %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertGeUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a >= b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s >= %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a >= b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s >= %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertLeUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a <= b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s <= %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a <= b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s <= %s (%s = %lu, %s = %lu).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertEqFloatImpl(double a, double b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a == b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s == %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a == b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s == %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertNeFloatImpl(double a, double b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a != b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s != %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a != b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s != %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertGtFloatImpl(double a, double b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a > b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s > %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a > b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s > %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertLtFloatImpl(double a, double b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a < b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s < %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a < b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s < %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertGeFloatImpl(double a, double b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a >= b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s >= %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a >= b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s >= %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertLeFloatImpl(double a, double b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a <= b)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s <= %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a <= b)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: %s <= %s (%s = %f, %s = %f).\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertEqStringImpl(char *a, char *b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(strcmp(a, b) == 0)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: strcmp(%s, %s) == 0 (%s = \"%s\", %s = \"%s\").\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(strcmp(a, b) == 0)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: strcmp(%s, %s) == 0 (%s = \"%s\", %s = \"%s\").\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertNeStringImpl(char *a, char *b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(strcmp(a, b) != 0)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: strcmp(%s, %s) != 0 (%s = \"%s\", %s = \"%s\").\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(strcmp(a, b) != 0)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: strcmp(%s, %s) != 0 (%s = \"%s\", %s = \"%s\").\n", fileName, lineNumber, testName, expressionA, expressionB, expressionA, a, expressionB, b);}
 }
 
 void testAssertEqNStringImpl(char *a, char *b, size_t n, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(strncmp(a, b, n) == 0)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: strcmp(%s, %s, %zu) == 0 (%s = \"%.*s\", %s = \"%.*s\").\n", fileName, lineNumber, testName, expressionA, expressionB, n, expressionA, (int)n, a, expressionB, (int)n, b);
+	if (!updateAssertionResults(strncmp(a, b, n) == 0)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: strcmp(%s, %s, %zu) == 0 (%s = \"%.*s\", %s = \"%.*s\").\n", fileName, lineNumber, testName, expressionA, expressionB, n, expressionA, (int)n, a, expressionB, (int)n, b);}
 }
 
 void testAssertNeNStringImpl(char *a, char *b, size_t n, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(strncmp(a, b, n) != 0)) printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: strcmp(%s, %s, %zu) != 0 (%s = \"%.*s\", %s = \"%.*s\").\n", fileName, lineNumber, testName, expressionA, expressionB, n, expressionA, (int)n, a, expressionB, (int)n, b);
+	if (!updateAssertionResults(strncmp(a, b, n) != 0)) {printfError(ERROR_PREFIX LOG_FORMAT "Assertion failed: strcmp(%s, %s, %zu) != 0 (%s = \"%.*s\", %s = \"%.*s\").\n", fileName, lineNumber, testName, expressionA, expressionB, n, expressionA, (int)n, a, expressionB, (int)n, b);}
 }
