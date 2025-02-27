@@ -20,7 +20,7 @@ typedef struct TestResults {
 	unsigned int assertionsFailed;
 } TestResults;
 
-extern FILE *output;
+FILE *output;
 // Used to share test results with child processes.
 static TestResults *results;
 
