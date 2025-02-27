@@ -14,7 +14,7 @@ static void fail(void) {
 }
 
 int main(void) {
-	output = stdout;
+	testOutput = stdout;
 	beginTesting();
 		runTest(pass);
 		runTest(segfault);

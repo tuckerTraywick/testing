@@ -37,7 +37,7 @@
 typedef void (*TestCase)(void);
 
 // Must be set before testing.
-extern FILE *output;
+extern FILE *testOutput;
 
 void beginTesting(void);
 
